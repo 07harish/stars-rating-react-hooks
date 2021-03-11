@@ -1,0 +1,23 @@
+body {
+    background-color: #b4aee8;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.full {
+    color: gold;
+}
+
+.empty {
+    color: darkgray;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+    padding: 80px 0px;
+    background-color: #440a67;
+}
