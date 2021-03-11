@@ -33,6 +33,7 @@ const App = () => {
     renderHalf: <i className="fas fa-star-half-alt"></i>,
   };
 
+  // test
   return (
     <>
       <div className="wrapper">
