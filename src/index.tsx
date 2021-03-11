@@ -68,7 +68,5 @@ export const StarsRating = (props: Props) => {
     return stars;
   };
 
-  console.log("asda", props);
-
   return <span className="stars">{renderStar(number)}</span>;
 };
