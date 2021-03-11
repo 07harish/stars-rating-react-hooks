@@ -50,14 +50,14 @@ export const StarsRating = (props: Props) => {
     const stars = Array.from(Array(number), (_, i: number) => {
       let sindex = i + 0.5;
       const isSelected = sindex <= softselected;
-      const isHalf = Number.isInteger(softselected);
+      const isHalf = !Number.isInteger(softselected) && sindex === softselected;
 
       return (
         <span
           key={i}
           onMouseOut={() => onMouseOut()}
           onMouseMove={e => onMouseMove(e, sindex)}
-          onClick={() => onClick(sindex)}
+          onClick={() => onClick(softselected)}
           className="star"
         >
           {isSelected ? (isHalf ? renderHalf : renderFull) : renderEmpty}
@@ -67,6 +67,8 @@ export const StarsRating = (props: Props) => {
 
     return stars;
   };
+
+  console.log("asda", props);
 
   return <span className="stars">{renderStar(number)}</span>;
 };
