@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { StarsRating } from '../.';
+import { StarsRating, useStars } from '../.';
 import './index.css';
 
 const App = () => {
@@ -33,10 +33,15 @@ const App = () => {
     renderHalf: <i className="fas fa-star-half-alt"></i>,
   };
 
-  // test
+  const { stars, getStarProps, getStarWrapperProps, isSelecting } = useStars(
+    config
+  );
+  console.log("j1nasd", stars, isSelecting);
+
   return (
     <>
       <div className="wrapper">
+        <div>{isSelecting ? 'Selecting' : null}</div>
         <StarsRating config={config} />
       </div>
 
@@ -51,7 +56,16 @@ const App = () => {
       <div className="wrapper">
         <StarsRating config={config3} />
       </div>
-      <div className="star">Star</div>
+
+      <div className="wrapper">
+        <span {...getStarWrapperProps()}>
+          {stars?.map((e: any, i: number) => (
+            <span key={i} {...getStarProps(i)}>
+              {e}
+            </span>
+          ))}
+        </span>
+      </div>
     </>
   );
 };
