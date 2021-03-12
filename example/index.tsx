@@ -51,6 +51,7 @@ const App = () => {
       <div className="wrapper">
         <StarsRating config={config3} />
       </div>
+      <div className="star">Star</div>
     </>
   );
 };

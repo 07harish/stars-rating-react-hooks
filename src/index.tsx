@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './styles/StarRating.css';
+import styles from './styles/StarRating.module.css';
 
 type ConfigType = {
   number: number;
@@ -58,7 +58,7 @@ export const StarsRating = (props: Props) => {
           onMouseOut={() => onMouseOut()}
           onMouseMove={e => onMouseMove(e, sindex)}
           onClick={() => onClick(softselected)}
-          className="star"
+          className={styles.star}
         >
           {isSelected ? (isHalf ? renderHalf : renderFull) : renderEmpty}
         </span>
@@ -68,5 +68,5 @@ export const StarsRating = (props: Props) => {
     return stars;
   };
 
-  return <span className="stars">{renderStar(number)}</span>;
+  return <span className={styles.stars}>{renderStar(number)}</span>;
 };
