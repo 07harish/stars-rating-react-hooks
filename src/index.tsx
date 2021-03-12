@@ -12,7 +12,8 @@ type ConfigType = {
 
 type Props = {
   config: ConfigType;
-  isSelecting?: (isSelecting: boolean) => void;
+  isSelecting?: (isSelecting: boolean, selectingValue: number) => void;
+  onStarsRated: (value: number) => void;
 };
 
 const callAllFns = (...fns: any[]) => (...args: any) =>
@@ -27,9 +28,20 @@ export function useStars(config: any) {
     renderEmpty = '',
   } = config;
 
-  const [selectedValue, setSelectedValue] = React.useState(value);
-  const [selectingValue, setSelecting] = React.useState(value);
-  const [isSelecting, setisSelecting] = React.useState(false);
+  const [selectedValue, setSelectedValue]: [
+    number,
+    React.Dispatch<any>
+  ] = React.useState(value);
+
+  const [selectingValue, setSelecting]: [
+    number,
+    React.Dispatch<any>
+  ] = React.useState(value);
+
+  const [isSelecting, setisSelecting]: [
+    boolean,
+    React.Dispatch<any>
+  ] = React.useState(false);
 
   const onClick = () => {
     setSelectedValue(selectingValue);
@@ -59,7 +71,8 @@ export function useStars(config: any) {
     let sindex = shouldRenderHalf ? i + 0.5 : i;
 
     const isSelected = sindex <= selectingValue;
-    const isHalf = !Number.isInteger(selectingValue) && sindex === selectingValue;
+    const isHalf =
+      !Number.isInteger(selectingValue) && sindex === selectingValue;
 
     const render = isSelected
       ? isHalf
@@ -109,19 +122,38 @@ export function useStars(config: any) {
     stars,
     getStarWrapperProps,
     isSelecting,
+    selectedValue,
+    selectingValue,
   };
 }
 
 export const StarsRating: Function = (props: Props) => {
   const instance = useStars(props.config);
-  const { stars, getStarProps, getStarWrapperProps, isSelecting } = instance;
+  const {
+    stars,
+    getStarProps,
+    getStarWrapperProps,
+    isSelecting,
+    selectingValue,
+    selectedValue,
+  } = instance;
+
+  const isMountRef = React.useRef(false)
 
   React.useEffect(() => {
-    props?.isSelecting && props?.isSelecting(isSelecting);
-  }, [isSelecting]);
+    props?.isSelecting && props?.isSelecting(isSelecting, selectingValue);
+
+  }, [isSelecting, selectingValue]);
+
+  React.useEffect(()=> {
+    if(isMountRef.current === true) {
+      props?.onStarsRated &&  props?.onStarsRated(selectedValue);
+    }
+    isMountRef.current = true;
+  },[selectedValue])
 
   return (
-    <span {...getStarWrapperProps()} className={styles.stars}>
+    <span tabIndex={0} {...getStarWrapperProps()} className={styles.stars}>
       {stars?.map((e: any, i: number) => (
         <span key={i} {...getStarProps(i)} className={styles.star}>
           {e}
