@@ -1,9 +1,3 @@
-.star {
-  color: gold;
-  font-size: 40px;
-}
-
 .stars {
   cursor: pointer;
-  padding: 20px;
 }

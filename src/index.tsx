@@ -88,7 +88,6 @@ export function useStars(config: any) {
     let i = shouldRenderHalf ? index + 0.5 : index;
     return {
       ...elementProps,
-      className: elementProps?.className ? elementProps.className : styles.star,
       onClick: callAllFns(elementProps && elementProps.onClick, onClick),
       onMouseMove: (e: any) =>
         callAllFns(
@@ -103,9 +102,6 @@ export function useStars(config: any) {
   function getStarWrapperProps(elementProps?: any) {
     return {
       ...elementProps,
-      className: elementProps?.className
-        ? elementProps.className
-        : styles.stars,
       onMouseLeave: callAllFns(
         elementProps && elementProps.onMouseLeave,
         onMouseLeave
@@ -141,14 +137,14 @@ export const StarsRating: Function = (props: Props) => {
   const isMountRef = React.useRef(false);
 
   React.useEffect(() => {
-    if(props?.isSelecting && props?.isSelecting) {
+    if(props && props.isSelecting && props?.isSelecting) {
       props.isSelecting(isSelecting, selectingValue);
     }
   }, [isSelecting, selectingValue]);
 
   React.useEffect(() => {
-    if (isMountRef.current === true) {
-      props?.onStarsRated && props?.onStarsRated(selectedValue);
+    if (isMountRef.current === true && props?.onStarsRated) {
+       props.onStarsRated(selectedValue);
     }
     isMountRef.current = true;
   }, [selectedValue]);

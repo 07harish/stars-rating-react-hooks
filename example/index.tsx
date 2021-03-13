@@ -22,8 +22,8 @@ const App = () => {
   const config1 = {
     number: 5,
     value: 2,
-    renderFull: <span className="mr-10 full">A</span>,
-    renderEmpty: <span className="mr-10 empty">A</span>,
+    renderFull: <span className="mr-10 star">A</span>,
+    renderEmpty: <span className="mr-10 star-empty">A</span>,
   };
 
   const config2 = {
@@ -79,13 +79,6 @@ const App = () => {
           {selecting.selectingValue}{' '}
           {selecting.isSelecting ? 'Rating...' : 'Stars'}
         </h3>
-        {/* <h3>
-          <span className="mr-10">
-            Last selected: {SelectedValue || config3.number}
-          </span>
-          &nbsp; &nbsp; &nbsp; &nbsp;
-          <span>Selecting: {selecting.selectingValue}</span>
-        </h3> */}
         <StarsRating
           isSelecting={(isSelecting, selectingValue) => {
             setselecting({ isSelecting, selectingValue });
