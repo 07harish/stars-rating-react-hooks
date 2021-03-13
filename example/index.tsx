@@ -86,9 +86,7 @@ const App = () => {
       </div>
 
       <div className="wrapper flex-col">
-        <h3>{isSelecting ? 'Rating' : 'Rate'}</h3>
-        <h3>Selecting value: {selectingValue}</h3>
-        <h3>Selected/ last selected value: {selectedValue}</h3>
+        <h3>{isSelecting ? 'Selecting' : 'Selected Value'} value: {selectingValue}</h3>
         <div>
           <span
             {...getStarWrapperProps({
@@ -97,7 +95,7 @@ const App = () => {
               },
             })}
           >
-            {stars?.map((e, i) => (
+            {stars?.map((star, i) => (
               <span
                 key={i}
                 {...getStarProps(i, {
@@ -109,7 +107,7 @@ const App = () => {
                   },
                 })}
               >
-                {e}
+                {star}
               </span>
             ))}
           </span>
