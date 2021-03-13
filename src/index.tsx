@@ -19,7 +19,6 @@ const callAllFns = (...fns: any[]) => (...args: any) =>
   fns.forEach(fn => fn && fn(...args));
 
 export function useStars(config: any) {
-
   const {
     number,
     value,
@@ -68,7 +67,7 @@ export function useStars(config: any) {
 
   const stars: Array<any> = Array.from(Array(number), (_, i: number) => {
     const shouldRenderHalf = renderHalf !== null ? true : false;
-    let sindex = shouldRenderHalf ? i + 0.5 : i + 1;;
+    let sindex = shouldRenderHalf ? i + 0.5 : i + 1;
 
     const isSelected = sindex <= selectingValue;
     const isHalf =
@@ -88,7 +87,11 @@ export function useStars(config: any) {
     let i = shouldRenderHalf ? index + 0.5 : index + 1;
     return {
       ...elementProps,
-      onClick: (e: any) => callAllFns(onClick(), elementProps && elementProps.onClick(e, selectingValue)),
+      onClick: (e: any) =>
+        callAllFns(
+          onClick(),
+          elementProps && elementProps.onClick(e, selectingValue)
+        ),
       onMouseMove: (e: any) =>
         callAllFns(
           onMouseMove(e, i),
@@ -140,6 +143,7 @@ export const StarsRating: Function = (props: Props) => {
     if (props && props.isSelecting && props?.isSelecting) {
       props.isSelecting(isSelecting, selectingValue);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSelecting, selectingValue]);
 
   React.useEffect(() => {
@@ -147,6 +151,7 @@ export const StarsRating: Function = (props: Props) => {
       props.onStarsRated(selectedValue);
     }
     isMountRef.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedValue]);
 
   return (
