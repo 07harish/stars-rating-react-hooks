@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "react": "^17.0.1",
     "react-app-polyfill": "^1.0.0",
     "stars-rating-react-hooks": "^0.1.5"
   },
