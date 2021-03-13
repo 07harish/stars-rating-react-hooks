@@ -138,19 +138,20 @@ export const StarsRating: Function = (props: Props) => {
     selectedValue,
   } = instance;
 
-  const isMountRef = React.useRef(false)
+  const isMountRef = React.useRef(false);
 
   React.useEffect(() => {
-    props?.isSelecting && props?.isSelecting(isSelecting, selectingValue);
-
+    if(props?.isSelecting && props?.isSelecting) {
+      props.isSelecting(isSelecting, selectingValue);
+    }
   }, [isSelecting, selectingValue]);
 
-  React.useEffect(()=> {
-    if(isMountRef.current === true) {
-      props?.onStarsRated &&  props?.onStarsRated(selectedValue);
+  React.useEffect(() => {
+    if (isMountRef.current === true) {
+      props?.onStarsRated && props?.onStarsRated(selectedValue);
     }
     isMountRef.current = true;
-  },[selectedValue])
+  }, [selectedValue]);
 
   return (
     <span tabIndex={0} {...getStarWrapperProps()} className={styles.stars}>
