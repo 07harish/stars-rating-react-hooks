@@ -3,10 +3,6 @@
 
 ### Customizable react component for rating stars 
 
- - Define `config` object
- - import { StarsRating } from "stars-rating-react-hooks"
- - Start using `<StarsRating config={config} />`
-
 ***
 [![NPM](https://img.shields.io/npm/v/stars-rating-react-hooks.svg)](https://www.npmjs.com/package/stars-rating-react-hooks)
 
