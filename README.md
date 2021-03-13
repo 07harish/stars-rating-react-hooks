@@ -52,6 +52,13 @@ export default Example
 ```
 import { useStars } from 'stars-rating-react-hooks'
 
+const config = {
+    number: 5,
+    value: 2,
+    renderFull: '★',
+    renderEmpty: '☆',
+  };
+
 const {
     stars,
     getStarProps,
