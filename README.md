@@ -1,7 +1,7 @@
 # stars-rating-react-hooks ⭐️
 <img width="265" alt="stars-rating-react-hooks" src="https://user-images.githubusercontent.com/27046938/111029678-f390b180-8423-11eb-9497-e8ab2e797686.png">
 
-### Customizable react component for rating stars 
+### Customizable react component for rating stars
 
 ***
 [![NPM](https://img.shields.io/npm/v/stars-rating-react-hooks.svg)](https://www.npmjs.com/package/stars-rating-react-hooks)
@@ -37,10 +37,10 @@ function Example() {
     )
   };
 
-  
-  
+
+
     return  <StarsRating config={config} />
-  
+
 }
 
 export default Example
@@ -49,7 +49,7 @@ export default Example
 ## Usage (Customizable and Headless)
 
 
-```
+```jsx
 import { useStars } from 'stars-rating-react-hooks'
 
 const config = {
@@ -98,12 +98,12 @@ const {
 ## Demo:
 
 ### Basic
-[Open Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+[Open Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js)
 
 ### Customizable and Headless:
 
 [Open Customizable codesandbox](
-https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js) 
+https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js)
 
 
 ## License
