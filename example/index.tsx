@@ -60,63 +60,90 @@ const App = () => {
   } = useStars(config);
 
   return (
-    <div className="app flex-col">
-      <div className="headingWrapper">
-        <h1 className="heading">stars-rating-react-hooks</h1>
-        <h3>
-          {selecting.selectingValue}
-          {selecting.isSelecting ? ' Rating...' : ' Stars'}
-        </h3>
-        <StarsRating
-          isSelecting={(isSelecting, selectingValue) => {
-            setselecting({ isSelecting, selectingValue });
-          }}
-          config={config5}
-        />
-      </div>
-
-      <div className="wrapper">
-        <StarsRating
-          onStarsRated={selectedValue => {
-            alert(`You just rated ${selectedValue} stars 🎉`);
-          }}
-          config={config4}
-        />
-      </div>
-
-      <div className="wrapper flex-col">
-        <h3>
-          {isSelecting ? 'Selecting' : 'Selected'} value: {selectingValue}
-        </h3>
-        <div>
-          <span
-            {...getStarWrapperProps({
-              style: {
-                cursor: 'pointer',
-              },
-            })}
-          >
-            {stars?.map((star, i) => (
-              <span
-                key={i}
-                {...getStarProps(i, {
-                  style: {
-                    fontSize: '40px',
-                  },
-                  onClick: (event, ratedValue) => {
-                    console.log(`You just rated ${ratedValue} Stars!!`);
-                  },
-                })}
-              >
-                {star}
-              </span>
-            ))}
-          </span>
+    <div className="app">
+      <div className="main">
+        <div className="headingWrapper">
+          <h1 className="heading">stars-rating-react-hooks</h1>
+          <h3>
+            {selecting.selectingValue}
+            {selecting.isSelecting ? ' Rating...' : ' Stars'}
+          </h3>
+          <StarsRating
+            isSelecting={(isSelecting, selectingValue) => {
+              setselecting({ isSelecting, selectingValue });
+            }}
+            config={config5}
+          />
         </div>
-      </div>
+        <div className="flex-col mt-50">
+          <h2>Links:</h2>
+          <div className="links">
+            <span>
+              <a href="https://github.com/07harish/stars-rating-react-hooks">
+                Github
+              </a>
+            </span>
+            <span>
+              <a href="https://www.npmjs.com/package/stars-rating-react-hooks">
+                NPM
+              </a>
+            </span>
+            <span>
+              <a href="https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js">
+                Code sandbox [Basic]
+              </a>
+            </span>
+            <span>
+              <a href="https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js">
+                Code sandbox [Customized]
+              </a>
+            </span>
+          </div>
+        </div>
 
-      <div className="wrapper">
-        <StarsRating config={config1} />
+        <div className="wrapper">
+          <StarsRating
+            onStarsRated={selectedValue => {
+              alert(`You just rated ${selectedValue} stars 🎉`);
+            }}
+            config={config4}
+          />
+        </div>
+
+        <div className="wrapper flex-col">
+          <h3>
+            {isSelecting ? 'Selecting' : 'Selected'} value: {selectingValue}
+          </h3>
+          <div>
+            <span
+              {...getStarWrapperProps({
+                style: {
+                  cursor: 'pointer',
+                },
+              })}
+            >
+              {stars?.map((star, i) => (
+                <span
+                  key={i}
+                  {...getStarProps(i, {
+                    style: {
+                      fontSize: '40px',
+                    },
+                    onClick: (event, ratedValue) => {
+                      console.log(`You just rated ${ratedValue} Stars!!`);
+                    },
+                  })}
+                >
+                  {star}
+                </span>
+              ))}
+            </span>
+          </div>
+        </div>
+
+        <div className="wrapper">
+          <StarsRating config={config1} />
+        </div>
       </div>
     </div>
   );

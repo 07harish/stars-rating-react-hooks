@@ -14,9 +14,12 @@ body {
 .app {
   display: flex;
   justify-content: center;
-  margin: 0 20%;
-  padding: 0 40px;
-  background-color: #7868e6;
+}
+
+.main{
+    width: 70%;
+    background-color: #7868e6;
+    padding: 20px;
 }
 
 .headingWrapper {
@@ -31,7 +34,13 @@ body {
   margin-right: 10px;
 }
 
+.mt-50 {
+    margin-top: 50px;
+}
+
 .flex-col {
+  display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 }
@@ -39,7 +48,7 @@ body {
 .wrapper {
   display: flex;
   justify-content: center;
-  margin: 10px 10px;
+  margin: 10px 0px;
   padding: 80px 0px;
   background-color: #440a67;
   width: 100%;
@@ -57,6 +66,18 @@ img {
 }
 
 .star-empty {
-    font-size: 40px;
-    color: darkgray;
-  }
+  font-size: 40px;
+  color: darkgray;
+}
+
+.links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+.links > span {
+    margin: 0px 20px;
+}
