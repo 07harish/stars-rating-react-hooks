@@ -104,7 +104,7 @@ const App = () => {
                     fontSize: '40px',
                   },
                   onClick: (event, ratedValue) => {
-                    alert(`You just rated ${ratedValue} Stars!!`);
+                    console.log(`You just rated ${ratedValue} Stars!!`);
                   },
                 })}
               >
