@@ -51,16 +51,54 @@ export default Example
 
 ```
 
-More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
+
+```
+import { useStars } from 'stars-rating-react-hooks'
+
+const {
+    stars,
+    getStarProps,
+    getStarWrapperProps,
+    isSelecting,
+    selectingValue,
+    selectedValue,
+  } = useStars(config);
+
+        <span
+            {...getStarWrapperProps({
+              style: {
+                cursor: 'pointer',
+              },
+            })}
+          >
+               {stars?.map((star, i) => (
+                    <span
+                      key={i}
+                      {...getStarProps(i, {
+                        style: {
+                          fontSize: '40px',
+                        },
+                        onClick: (event , ratedValue ) => {
+                          alert(`You just rated ${ratedValue} Stars!!`);
+                        },
+                      })}
+                    >
+                      {star}
+                    </span>
+                  ))}
+       </span>
+```
+
+'getStarWrapperProps' and 'getStarProps' are prop getters, More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
 
 ## Demo:
 
 ### Basic
-[Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+[Open Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
 
 ### Customizable and Headless:
 
-[Customizable](
+[Open Customizable codesandbox](
 https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js) 
 
 
