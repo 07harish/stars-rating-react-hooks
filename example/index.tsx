@@ -10,7 +10,6 @@ const App = () => {
     selectingValue: null,
   });
 
-
   const config = {
     number: 5,
     value: 2,
@@ -86,7 +85,9 @@ const App = () => {
       </div>
 
       <div className="wrapper flex-col">
-        <h3>{isSelecting ? 'Selecting' : 'Selected Value'} value: {selectingValue}</h3>
+        <h3>
+          {isSelecting ? 'Selecting' : 'Selected'} value: {selectingValue}
+        </h3>
         <div>
           <span
             {...getStarWrapperProps({
@@ -102,7 +103,7 @@ const App = () => {
                   style: {
                     fontSize: '40px',
                   },
-                  onClick: (event , ratedValue ) => {
+                  onClick: (event, ratedValue) => {
                     alert(`You just rated ${ratedValue} Stars!!`);
                   },
                 })}
