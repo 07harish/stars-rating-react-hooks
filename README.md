@@ -53,8 +53,16 @@ export default Example
 
 More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
 
-## Demo
-[Basic demo](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+## Demo:
+
+### Basic
+[Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+
+### Customizable and Headless:
+
+[Customizable](
+https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js) 
+
 
 ## License
 
