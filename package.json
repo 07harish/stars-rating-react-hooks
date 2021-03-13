@@ -58,5 +58,27 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^3.9.9"
-  }
+  },
+  "description": "Stars rating with react-hooks, flexible and customizable component (headless)",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/07harish/stars-rating-react-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "stars-rating-react-hooks",
+    "react-stars-rating",
+    "stars-rating-react",
+    "star-rating",
+    "react-hooks"
+  ],
+  "bugs": {
+    "url": "https://github.com/07harish/stars-rating-react-hooks/issues"
+  },
+  "homepage": "https://github.com/07harish/stars-rating-react-hooks#readme"
 }
