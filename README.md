@@ -46,6 +46,7 @@ function Example() {
 export default Example
 
 ```
+## Usage (Customizable and Headless)
 
 
 ```
