@@ -1,7 +1,8 @@
 # stars-rating-react-hooks ⭐️
 <img width="265" alt="stars-rating-react-hooks" src="https://user-images.githubusercontent.com/27046938/111029678-f390b180-8423-11eb-9497-e8ab2e797686.png">
 
-### React Rating Stars - Customizable and headless hooks.
+### React Rating Stars - Customizable and headless hooks. [Live demos website](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js)
+
 
 ***
 [![NPM](https://img.shields.io/npm/v/stars-rating-react-hooks.svg)](https://www.npmjs.com/package/stars-rating-react-hooks)
