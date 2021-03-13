@@ -3,10 +3,6 @@
 
 ### Customizable react component for rating stars 
 
- - Define `config` object
- - import { StarsRating } from "stars-rating-react-hooks"
- - Start using `<StarsRating config={config} />`
-
 ***
 [![NPM](https://img.shields.io/npm/v/stars-rating-react-hooks.svg)](https://www.npmjs.com/package/stars-rating-react-hooks)
 
@@ -50,11 +46,65 @@ function Example() {
 export default Example
 
 ```
+## Usage (Customizable and Headless)
 
-More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
 
-## Demo
-[Basic demo](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+```
+import { useStars } from 'stars-rating-react-hooks'
+
+const config = {
+    number: 5,
+    value: 2,
+    renderFull: '★',
+    renderEmpty: '☆',
+  };
+
+const {
+    stars,
+    getStarProps,
+    getStarWrapperProps,
+    isSelecting,
+    selectingValue,
+    selectedValue,
+  } = useStars(config);
+
+        <span
+            {...getStarWrapperProps({
+              style: {
+                cursor: 'pointer',
+              },
+            })}
+          >
+               {stars?.map((star, i) => (
+                    <span
+                      key={i}
+                      {...getStarProps(i, {
+                        style: {
+                          fontSize: '40px',
+                        },
+                        onClick: (event , ratedValue ) => {
+                          alert(`You just rated ${ratedValue} Stars!!`);
+                        },
+                      })}
+                    >
+                      {star}
+                    </span>
+                  ))}
+       </span>
+```
+
+'getStarWrapperProps' and 'getStarProps' are prop getters, More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
+
+## Demo:
+
+### Basic
+[Open Basic codesandbox](https://codesandbox.io/s/stars-rating-react-hooks-c936v?file=/src/App.js) 
+
+### Customizable and Headless:
+
+[Open Customizable codesandbox](
+https://codesandbox.io/s/stars-rating-react-hooksadvanced-7xnuw?file=/src/App.js) 
+
 
 ## License
 
