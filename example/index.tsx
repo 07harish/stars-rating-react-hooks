@@ -10,7 +10,6 @@ const App = () => {
     selectingValue: null,
   });
 
-  const [SelectedValue, setSelectedValue] = React.useState(3.5);
 
   const config = {
     number: 5,
@@ -24,13 +23,6 @@ const App = () => {
     value: 2,
     renderFull: <span className="mr-10 star">A</span>,
     renderEmpty: <span className="mr-10 star-empty">A</span>,
-  };
-
-  const config2 = {
-    number: 5,
-    value: 2,
-    renderFull: '✅',
-    renderEmpty: '☑',
   };
 
   const config4 = {
@@ -87,7 +79,6 @@ const App = () => {
       <div className="wrapper">
         <StarsRating
           onStarsRated={selectedValue => {
-            setSelectedValue(selectedValue);
             alert(`You just rated ${selectedValue} stars 🎉`);
           }}
           config={config4}
