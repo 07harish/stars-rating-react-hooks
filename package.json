@@ -34,7 +34,7 @@
     "trailingComma": "es5"
   },
   "name": "stars-rating-react-hooks",
-  "author": "harish.kulkarni",
+  "author": "07harish",
   "module": "dist/stars-rating-react-hooks.esm.js",
   "size-limit": [
     {
