@@ -59,9 +59,14 @@ const App = () => {
     ),
   };
 
-  const { stars, getStarProps, getStarWrapperProps, isSelecting } = useStars(
-    config
-  );
+  const {
+    stars,
+    getStarProps,
+    getStarWrapperProps,
+    isSelecting,
+    selectingValue,
+    selectedValue,
+  } = useStars(config);
 
   return (
     <div className="app flex-col">
@@ -74,9 +79,6 @@ const App = () => {
         <StarsRating
           isSelecting={(isSelecting, selectingValue) => {
             setselecting({ isSelecting, selectingValue });
-          }}
-          onStarsRated={selectedValue => {
-            setSelectedValue(selectedValue);
           }}
           config={config5}
         />
@@ -94,6 +96,8 @@ const App = () => {
 
       <div className="wrapper flex-col">
         <h3>{isSelecting ? 'Rating' : 'Rate'}</h3>
+        <h3>Selecting value: {selectingValue}</h3>
+        <h3>Selected/ last selected value: {selectedValue}</h3>
         <div>
           <span
             {...getStarWrapperProps({
@@ -102,12 +106,15 @@ const App = () => {
               },
             })}
           >
-            {stars?.map((e: any, i: number) => (
+            {stars?.map((e, i) => (
               <span
                 key={i}
                 {...getStarProps(i, {
                   style: {
                     fontSize: '40px',
+                  },
+                  onClick: (event , ratedValue ) => {
+                    alert(`You just rated ${ratedValue} Stars!!`);
                   },
                 })}
               >

@@ -7,7 +7,6 @@ type ConfigType = {
   renderFull: JSX.Element | string;
   renderHalf?: JSX.Element | string;
   renderEmpty?: JSX.Element | string;
-  shouldRenderHalf?: boolean;
 };
 
 type Props = {
@@ -20,6 +19,7 @@ const callAllFns = (...fns: any[]) => (...args: any) =>
   fns.forEach(fn => fn && fn(...args));
 
 export function useStars(config: any) {
+
   const {
     number,
     value,
@@ -59,7 +59,7 @@ export function useStars(config: any) {
   const onMouseMove = (e: any, index: number) => {
     const rect = e.target.getBoundingClientRect();
     const xmiddleRelativePosistion = e.pageX - e.target.offsetLeft;
-    if (rect.width / 2 <= xmiddleRelativePosistion) {
+    if (renderHalf !== null && rect.width / 2 <= xmiddleRelativePosistion) {
       setSelecting(index + 0.5);
     } else {
       setSelecting(index);
@@ -68,7 +68,7 @@ export function useStars(config: any) {
 
   const stars: Array<any> = Array.from(Array(number), (_, i: number) => {
     const shouldRenderHalf = renderHalf !== null ? true : false;
-    let sindex = shouldRenderHalf ? i + 0.5 : i;
+    let sindex = shouldRenderHalf ? i + 0.5 : i + 1;;
 
     const isSelected = sindex <= selectingValue;
     const isHalf =
@@ -85,10 +85,10 @@ export function useStars(config: any) {
 
   function getStarProps(index: number, elementProps?: any) {
     const shouldRenderHalf = renderHalf !== null ? true : false;
-    let i = shouldRenderHalf ? index + 0.5 : index;
+    let i = shouldRenderHalf ? index + 0.5 : index + 1;
     return {
       ...elementProps,
-      onClick: callAllFns(onClick, elementProps && elementProps.onClick),
+      onClick: (e: any) => callAllFns(onClick(), elementProps && elementProps.onClick(e, selectingValue)),
       onMouseMove: (e: any) =>
         callAllFns(
           onMouseMove(e, i),
@@ -124,7 +124,7 @@ export function useStars(config: any) {
 }
 
 export const StarsRating: Function = (props: Props) => {
-  const instance = useStars(props.config);
+  const instance: any = useStars(props.config);
   const {
     stars,
     getStarProps,
@@ -137,14 +137,14 @@ export const StarsRating: Function = (props: Props) => {
   const isMountRef = React.useRef(false);
 
   React.useEffect(() => {
-    if(props && props.isSelecting && props?.isSelecting) {
+    if (props && props.isSelecting && props?.isSelecting) {
       props.isSelecting(isSelecting, selectingValue);
     }
   }, [isSelecting, selectingValue]);
 
   React.useEffect(() => {
     if (isMountRef.current === true && props?.onStarsRated) {
-       props.onStarsRated(selectedValue);
+      props.onStarsRated(selectedValue);
     }
     isMountRef.current = true;
   }, [selectedValue]);
