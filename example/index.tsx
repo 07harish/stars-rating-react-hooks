@@ -33,14 +33,6 @@ const App = () => {
     renderEmpty: '☑',
   };
 
-  const config3 = {
-    number: 5,
-    value: 3.5,
-    renderFull: <i className="fas fa-star"></i>,
-    renderEmpty: <i className="far fa-star"></i>,
-    renderHalf: <i className="fas fa-star-half-alt"></i>,
-  };
-
   const config4 = {
     number: 5,
     value: 3.5,
@@ -76,8 +68,8 @@ const App = () => {
       <div className="headingWrapper">
         <h1 className="heading">stars-rating-react-hooks</h1>
         <h3>
-          {selecting.selectingValue}{' '}
-          {selecting.isSelecting ? 'Rating...' : 'Stars'}
+          {selecting.selectingValue}
+          {selecting.isSelecting ? ' Rating...' : ' Stars'}
         </h3>
         <StarsRating
           isSelecting={(isSelecting, selectingValue) => {
@@ -98,27 +90,36 @@ const App = () => {
           }}
           config={config4}
         />
-        <StarsRating config={config3} />
       </div>
 
       <div className="wrapper flex-col">
         <h3>{isSelecting ? 'Rating' : 'Rate'}</h3>
         <div>
-          <span {...getStarWrapperProps()}>
+          <span
+            {...getStarWrapperProps({
+              style: {
+                cursor: 'pointer',
+              },
+            })}
+          >
             {stars?.map((e: any, i: number) => (
-              <span key={i} {...getStarProps(i)}>
+              <span
+                key={i}
+                {...getStarProps(i, {
+                  style: {
+                    fontSize: '40px',
+                  },
+                })}
+              >
                 {e}
               </span>
             ))}
           </span>
         </div>
       </div>
-      <div className="wrapper">
-        <StarsRating config={config1} />
-      </div>
 
       <div className="wrapper">
-        <StarsRating config={config2} />
+        <StarsRating config={config1} />
       </div>
     </div>
   );
