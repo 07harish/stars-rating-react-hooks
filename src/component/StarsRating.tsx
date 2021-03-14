@@ -33,15 +33,15 @@ export const StarsRating: Function = (props: StarRatingProps) => {
 
   return (
     <>
-    <div>
-    <span tabIndex={0} {...getStarWrapperProps()} className={styles.stars}>
-      {stars?.map((e: any, i: number) => (
-        <span key={i} {...getStarProps(i)} className={styles.star}>
-          {e}
+      <div>
+        <span tabIndex={0} {...getStarWrapperProps()} className={styles.stars}>
+          {stars?.map((e: any, i: number) => (
+            <span key={i} {...getStarProps(i)} className={styles.star}>
+              {e}
+            </span>
+          ))}
         </span>
-      ))}
-    </span>
-    </div>
+      </div>
     </>
   );
 };

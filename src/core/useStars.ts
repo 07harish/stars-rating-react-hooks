@@ -51,22 +51,25 @@ export function useStars(config: Config) {
     }
   };
 
-  const stars: Array<Renderable> = Array.from(Array(totalStars), (_, i: number) => {
-    const shouldRenderHalf = renderHalf !== null ? true : false;
-    let sindex = shouldRenderHalf ? i + 0.5 : i + 1;
+  const stars: Array<Renderable> = Array.from(
+    Array(totalStars),
+    (_, i: number) => {
+      const shouldRenderHalf = renderHalf !== null ? true : false;
+      let sindex = shouldRenderHalf ? i + 0.5 : i + 1;
 
-    const isSelected = sindex <= selectingValue;
-    const isHalf =
-      !Number.isInteger(selectingValue) && sindex === selectingValue;
+      const isSelected = sindex <= selectingValue;
+      const isHalf =
+        !Number.isInteger(selectingValue) && sindex === selectingValue;
 
-    const render = isSelected
-      ? isHalf
-        ? renderHalf
-        : renderFull
-      : renderEmpty;
+      const render = isSelected
+        ? isHalf
+          ? renderHalf
+          : renderFull
+        : renderEmpty;
 
-    return render;
-  });
+      return render;
+    }
+  );
 
   function getStarProps(index: number, elementProps?: any) {
     const shouldRenderHalf = renderHalf !== null ? true : false;

@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-app-polyfill": "^1.0.0",
-    "stars-rating-react-hooks": "^0.1.5"
+    "stars-rating-react-hooks": "latest"
   },
   "alias": {
     "react": "../node_modules/react",
