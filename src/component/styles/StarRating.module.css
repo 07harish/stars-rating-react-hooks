@@ -1,0 +1,7 @@
+.stars {
+  cursor: pointer;
+  display: inline-block;
+}
+.star {
+  display: inline-block;
+}

@@ -26,8 +26,8 @@ import { StarsRating } from "stars-rating-react-hooks";
 function Example() {
 
   const config = {
-    number: 5,
-    value: 4.5,
+    totalStars: 5,
+    initialSelectedValue: 4.5,
     renderFull: (
       <img src="https://img.icons8.com/ios-filled/50/000000/star--v1.png" />
     ),
@@ -55,8 +55,8 @@ export default Example
 import { useStars } from 'stars-rating-react-hooks'
 
 const config = {
-    number: 5,
-    value: 2,
+    totalStars: 5,
+    initialSelectedValue: 2,
     renderFull: '★',
     renderEmpty: '☆',
   };
@@ -70,30 +70,33 @@ const {
     selectedValue,
   } = useStars(config);
 
-        <span
-            {...getStarWrapperProps({
-              style: {
-                cursor: 'pointer',
-              },
-            })}
-          >
-               {stars?.map((star, i) => (
-                    <span
-                      key={i}
-                      {...getStarProps(i, {
-                        style: {
-                          fontSize: '40px',
-                        },
-                        onClick: (event , ratedValue ) => {
-                          alert(`You just rated ${ratedValue} Stars!!`);
-                        },
-                      })}
-                    >
-                      {star}
-                    </span>
-                  ))}
-       </span>
-```
+             <span
+              {...getStarWrapperProps({
+                style: {
+                  cursor: 'pointer',
+                  display: 'inline-block'
+                },
+              })}
+            >
+              {stars?.map((star, i) => (
+                <span
+                  key={i}
+                  {...getStarProps(i, {
+                    style: {
+                      fontSize: '40px',
+                      display: 'inline-block'
+                    },
+                    onClick: (event, ratedValue) => {
+                      console.log(`You just rated ${ratedValue} Stars!!`);
+                    },
+                  })}
+                >
+                  {star}
+                </span>
+              ))}
+            </span>
+
+  ```
 
 'getStarWrapperProps' and 'getStarProps' are prop getters, More info on [prop getters](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
 

@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { StarsRating, useStars } from 'stars-rating-react-hooks';
+import { StarsRating, useStars } from '../.';
 import './index.css';
 
 const App = () => {
@@ -11,22 +11,22 @@ const App = () => {
   });
 
   const config = {
-    number: 5,
-    value: 2,
+    totalStars: 5,
+    initialSelectedValue: 2,
     renderFull: '★',
     renderEmpty: '☆',
   };
 
   const config1 = {
-    number: 5,
-    value: 2,
+    totalStars: 5,
+    initialSelectedValue: 2,
     renderFull: <span className="mr-10 star">A</span>,
     renderEmpty: <span className="mr-10 star-empty">A</span>,
   };
 
   const config4 = {
-    number: 5,
-    value: 3.5,
+    totalStars: 5,
+    initialSelectedValue: 3.5,
     renderFull: <img src="https://img.icons8.com/fluent/48/000000/star.png" />,
     renderEmpty: (
       <img src="https://img.icons8.com/color/48/000000/star--v1.png" />
@@ -37,8 +37,8 @@ const App = () => {
   };
 
   const config5 = {
-    number: 5,
-    value: 4.5,
+    totalStars: 5,
+    initialSelectedValue: 4.5,
     renderFull: (
       <img src="https://img.icons8.com/ios-filled/50/000000/star--v1.png" />
     ),
@@ -69,7 +69,7 @@ const App = () => {
             {selecting.isSelecting ? ' Rating...' : ' Stars'}
           </h3>
           <StarsRating
-            isSelecting={(isSelecting, selectingValue) => {
+            onSelecting={(isSelecting, selectingValue) => {
               setselecting({ isSelecting, selectingValue });
             }}
             config={config5}
@@ -119,6 +119,7 @@ const App = () => {
               {...getStarWrapperProps({
                 style: {
                   cursor: 'pointer',
+                  display: 'inline-block'
                 },
               })}
             >
@@ -128,6 +129,7 @@ const App = () => {
                   {...getStarProps(i, {
                     style: {
                       fontSize: '40px',
+                      display: 'inline-block'
                     },
                     onClick: (event, ratedValue) => {
                       console.log(`You just rated ${ratedValue} Stars!!`);
