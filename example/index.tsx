@@ -24,7 +24,7 @@ const App = () => {
     renderEmpty: <span className="mr-10 star-empty">A</span>,
   };
 
-  const config4 = {
+  const config2 = {
     totalStars: 5,
     initialSelectedValue: 3.5,
     renderFull: <img src="https://img.icons8.com/fluent/48/000000/star.png" />,
@@ -36,7 +36,7 @@ const App = () => {
     ),
   };
 
-  const config5 = {
+  const config3 = {
     totalStars: 5,
     initialSelectedValue: 4.5,
     renderFull: (
@@ -72,7 +72,7 @@ const App = () => {
             onSelecting={(isSelecting, selectingValue) => {
               setselecting({ isSelecting, selectingValue });
             }}
-            config={config5}
+            config={config3}
           />
         </div>
         <div className="flex-col mt-50">
@@ -106,7 +106,7 @@ const App = () => {
             onStarsRated={selectedValue => {
               alert(`You just rated ${selectedValue} stars 🎉`);
             }}
-            config={config4}
+            config={config2}
           />
         </div>
 
