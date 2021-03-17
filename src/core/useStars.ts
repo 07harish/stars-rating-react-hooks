@@ -4,7 +4,7 @@ import { Config, Renderable } from './types';
 const callAllFns = (...fns: any[]) => (...args: any) =>
   fns.forEach(fn => fn && fn(...args));
 
-export function useStars(config: Config) {
+export function useStars(config: Config, isDisabled: boolean = false) {
   const {
     totalStars,
     initialSelectedValue = 0,
@@ -29,19 +29,23 @@ export function useStars(config: Config) {
   ] = React.useState(false);
 
   const onClick = () => {
+    if (isDisabled) return;
     setSelectedValue(selectingValue);
   };
 
   const onMouseEnter = () => {
+    if (isDisabled) return;
     setisSelecting(true);
   };
 
   const onMouseLeave = () => {
+    if (isDisabled) return;
     setSelecting(selectedValue);
     setisSelecting(false);
   };
 
   const onMouseMove = (e: any, index: number) => {
+    if (isDisabled) return;
     const rect = e.target.getBoundingClientRect();
     const xmiddleRelativePosistion = e.pageX - e.target.offsetLeft;
     if (renderHalf !== null && rect.width / 2 <= xmiddleRelativePosistion) {

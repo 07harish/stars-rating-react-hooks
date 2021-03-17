@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { StarsRating, useStars } from 'stars-rating-react-hooks';
+import { StarsRating, useStars } from './..';
 import './index.css';
 
 const App = () => {
@@ -119,7 +119,7 @@ const App = () => {
               {...getStarWrapperProps({
                 style: {
                   cursor: 'pointer',
-                  display: 'inline-block'
+                  display: 'inline-block',
                 },
               })}
             >
@@ -129,7 +129,7 @@ const App = () => {
                   {...getStarProps(i, {
                     style: {
                       fontSize: '40px',
-                      display: 'inline-block'
+                      display: 'inline-block',
                     },
                     onClick: (event, ratedValue) => {
                       console.log(`You just rated ${ratedValue} Stars!!`);
