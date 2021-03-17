@@ -149,10 +149,7 @@ const App = () => {
 
         <div className="wrapper flex-col">
           <h3>Star rating Disabled</h3>
-          <StarsRating
-            config={config2}
-            isDisabled={true}
-          />
+          <StarsRating config={config2} isDisabled={true} />
         </div>
       </div>
     </div>
