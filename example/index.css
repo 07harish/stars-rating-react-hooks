@@ -16,10 +16,10 @@ body {
   justify-content: center;
 }
 
-.main{
-    width: 70%;
-    background-color: #7868e6;
-    padding: 20px;
+.main {
+  width: 70%;
+  background-color: #7868e6;
+  padding: 20px;
 }
 
 .headingWrapper {
@@ -35,7 +35,7 @@ body {
 }
 
 .mt-50 {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .flex-col {
@@ -71,13 +71,13 @@ img {
 }
 
 .links {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 20px;
 }
 
 .links > span {
-    margin: 0px 20px;
+  margin: 0px 20px;
 }

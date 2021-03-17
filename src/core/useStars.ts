@@ -76,12 +76,12 @@ export function useStars(config: Config) {
     let i = shouldRenderHalf ? index + 0.5 : index + 1;
     return {
       ...elementProps,
-      onClick: (e: MouseEvent) =>
+      onClick: (e: any) =>
         callAllFns(
           onClick(),
           elementProps && elementProps.onClick(e, selectingValue)
         ),
-      onMouseMove: (e: MouseEvent) =>
+      onMouseMove: (e: any) =>
         callAllFns(
           onMouseMove(e, i),
           elementProps &&
