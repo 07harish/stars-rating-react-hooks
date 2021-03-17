@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { StarsRating, useStars } from './..';
+import { StarsRating, useStars } from 'stars-rating-react-hooks';
 import './index.css';
 
 const App = () => {

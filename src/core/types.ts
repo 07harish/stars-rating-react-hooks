@@ -12,4 +12,5 @@ export type StarRatingProps = {
   config: Config;
   onSelecting?: (isSelecting: boolean, selectingValue: number) => void;
   onStarsRated?: (initialSelectedValue: number) => void;
+  isDisabled?: boolean;
 };

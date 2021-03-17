@@ -4,7 +4,8 @@ import { useStars } from '../core/useStars';
 import styles from './styles/StarRating.module.css';
 
 export const StarsRating: Function = (props: StarRatingProps) => {
-  const instance: any = useStars(props.config);
+  const { isDisabled = false } = props;
+  const instance: any = useStars(props.config, isDisabled);
   const {
     stars,
     getStarProps,
