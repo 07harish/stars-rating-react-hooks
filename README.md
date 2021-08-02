@@ -39,7 +39,14 @@ function Example() {
     )
   };
 
-
+     <StarsRating config={config}
+       onStarsRated={(value) => {
+        alert(`${value} stars rated`);
+      }}
+      onSelecting={(isSelecting, selectingValue) => {
+        console.log(isSelecting, selectingValue)
+      }} 
+    />
 
     return  <StarsRating config={config} />
 
